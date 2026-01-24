@@ -4,6 +4,9 @@
     "package": "xyz.bonfiremc.randevents.mixin",
     "compatibilityLevel": "JAVA_21",
     "mixins": [
+        "DerivedLevelDataMixin",
+        "LevelStorageSourceMixin",
+        "PrimaryLevelDataMixin"
     ],
     "injectors": {
         "defaultRequire": 1

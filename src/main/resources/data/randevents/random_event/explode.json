@@ -1,0 +1,10 @@
+{
+    "triggers": [
+        "block_break",
+        "block_place",
+        "item_use",
+        "entity_kill"
+    ],
+    "action": "randevents:explode",
+    "radius": 5
+}
