@@ -47,25 +47,33 @@ public class REData {
 
     public Optional<RandomEvent> get(RandomEvent.Trigger trigger, Level level, Identifier id) {
         Map<Identifier, Identifier> ids = this.values.computeIfAbsent(trigger, ignored -> new HashMap<>());
-
-        Identifier eventId = ids.get(id);
         RandomEventManager manager = REInitializer.getRandomEventManager();
 
-        if (eventId == null) {
-            List<Map.Entry<Identifier, RandomEvent>> candidates = manager.events.entrySet()
-                    .stream()
-                    .filter(entry -> entry.getValue().triggers().contains(trigger))
-                    .toList();
+        Identifier eventId = ids.get(id);
 
-            if (candidates.isEmpty()) return Optional.empty();
+        if (eventId != null) {
+            Optional<RandomEvent> event = manager.get(eventId);
 
-            Map.Entry<Identifier, RandomEvent> random = candidates.get(level.random.nextInt(candidates.size()));
-
-            ids.put(id, random.getKey());
-
-            return Optional.of(random.getValue());
-        } else {
-            return manager.get(eventId);
+            if (event.isPresent()) {
+                return event;
+            } else {
+                System.out.println("Random event with id \"" + id.toString() + "\" no longer exists, it was deleted?");
+                ids.remove(id);
+            }
         }
+
+        List<Map.Entry<Identifier, RandomEvent>> candidates = manager.events.entrySet()
+                .stream()
+                .filter(entry -> entry.getValue().triggers().contains(trigger))
+                .toList();
+
+        if (candidates.isEmpty()) {
+            return Optional.empty();
+        }
+
+        Map.Entry<Identifier, RandomEvent> random = candidates.get(level.random.nextInt(candidates.size()));
+        ids.put(id, random.getKey());
+
+        return Optional.of(random.getValue());
     }
 }

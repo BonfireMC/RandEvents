@@ -9,10 +9,10 @@ import xyz.bonfiremc.randevents.impl.REInitializer;
 
 @ApiStatus.Internal
 public class REActions {
-    public static final REActionType EXPLODE = register("explode", ExplodeAction.CODEC);
+    public static final REActionType EXPLODE = register("explode", ExplodeREAction.CODEC);
+    public static final REActionType BUZZY_BEES = register("buzzy_bees", BuzzyBeesREAction.CODEC);
 
     public static void load() {
-
     }
 
     private static REActionType register(String path, MapCodec<? extends REAction> action) {
