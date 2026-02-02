@@ -7,6 +7,6 @@
     ],
     "action": "randevents:spawn_entity",
     "entity_type": "minecraft:bee",
-    "count": 50,
+    "count": 10,
     "angry_at_player": true
 }
