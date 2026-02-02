@@ -20,7 +20,7 @@ public record ExplodeREAction(int radius, Level.ExplosionInteraction explosionIn
 
     @Override
     public REActionType type() {
-        return REActions.BUZZY_BEES;
+        return REActions.EXPLODE;
     }
 
     @Override

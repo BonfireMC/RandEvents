@@ -1,0 +1,6 @@
+{
+    "triggers": [
+        "entity_kill"
+    ],
+    "action": "randevents:duplicate_entity"
+}

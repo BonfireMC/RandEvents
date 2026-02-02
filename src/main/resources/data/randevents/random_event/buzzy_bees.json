@@ -5,6 +5,8 @@
         "item_use",
         "entity_kill"
     ],
-    "action": "randevents:buzzy_bees",
-    "count": 50
+    "action": "randevents:spawn_entity",
+    "entity_type": "minecraft:bee",
+    "count": 50,
+    "angry_at_player": true
 }
