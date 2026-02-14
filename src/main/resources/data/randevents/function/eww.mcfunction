@@ -1,0 +1,1 @@
+summon area_effect_cloud ~ ~ ~ {Particle:{type:angry_villager},Radius:3,RadiusPerTick:-0.01,Duration:200,potion_contents:{custom_color:7765024,custom_effects:[{id:poison,duration:15,amplifier:1,show_particles:1b,show_icon:1}]}}

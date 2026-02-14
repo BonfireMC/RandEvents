@@ -5,7 +5,9 @@
     "compatibilityLevel": "JAVA_21",
     "mixins": [
         "BlockItemMixin",
+        "ConsumableMixin",
         "DerivedLevelDataMixin",
+        "FlintAndSteelItemMixin",
         "LevelStorageSourceMixin",
         "PrimaryLevelDataMixin"
     ],

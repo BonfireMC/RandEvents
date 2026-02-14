@@ -5,22 +5,23 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.ApiStatus;
 import xyz.bonfiremc.randevents.api.resources.RandomEvent;
 import xyz.bonfiremc.randevents.impl.resources.RandomEventManager;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.Function;
 
+@ApiStatus.Internal
 public class REData {
+    private static final Codec<Map<Identifier, Identifier>> ID_MAP_CODEC = Codec.unboundedMap(Identifier.CODEC, Identifier.CODEC).xmap(HashMap::new, Function.identity());
+
     private final Map<RandomEvent.Trigger, Map<Identifier, Identifier>> values;
-    private final Codec<Map<Identifier, Identifier>> ID_MAP_CODEC = Codec.unboundedMap(Identifier.CODEC, Identifier.CODEC).xmap(HashMap::new, Function.identity());
+    private final long seed;
 
     public REData() {
         this.values = new HashMap<>();
+        this.seed = 0;
     }
 
     public void write(CompoundTag nbt) {
@@ -45,7 +46,7 @@ public class REData {
         }
     }
 
-    public Optional<RandomEvent> get(RandomEvent.Trigger trigger, Level level, Identifier id) {
+    public Optional<RandomEvent> get(RandomEvent.Trigger trigger, Identifier id) {
         Map<Identifier, Identifier> ids = this.values.computeIfAbsent(trigger, ignored -> new HashMap<>());
         RandomEventManager manager = REInitializer.getRandomEventManager();
 
@@ -71,9 +72,24 @@ public class REData {
             return Optional.empty();
         }
 
-        Map.Entry<Identifier, RandomEvent> random = candidates.get(level.random.nextInt(candidates.size()));
-        ids.put(id, random.getKey());
+        Random random = new Random(this.mixSeed(trigger, id));
 
-        return Optional.of(random.getValue());
+        Map.Entry<Identifier, RandomEvent> randomEvent = candidates.get(random.nextInt(candidates.size()));
+        ids.put(id, randomEvent.getKey());
+
+        return Optional.of(randomEvent.getValue());
+    }
+
+    private long mixSeed(RandomEvent.Trigger trigger, Identifier id) {
+        long h = this.seed;
+
+        h = h * 31 + trigger.getSerializedName().hashCode();
+        h = h * 31 + id.toString().hashCode();
+
+        h ^= (h << 21);
+        h ^= (h >>> 35);
+        h ^= (h << 4);
+
+        return h;
     }
 }

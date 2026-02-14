@@ -1,0 +1,10 @@
+{
+    "triggers": [
+        "block_break",
+        "block_place",
+        "item_consume",
+        "entity_kill"
+    ],
+    "action": "randevents:execute_function",
+    "function": "randevents:eww"
+}

@@ -1,0 +1,11 @@
+{
+    "values": [
+        "#c:player_workstations/crafting_tables",
+        "#c:player_workstations/furnaces",
+        "#c:villager_job_sites",
+        "#c:chests",
+        "minecraft:anvil",
+        "minecraft:enchanting_table",
+        "minecraft:crafter"
+    ]
+}

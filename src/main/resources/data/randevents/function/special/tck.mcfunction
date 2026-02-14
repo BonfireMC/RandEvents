@@ -1,0 +1,4 @@
+summon zombie ~ ~ ~ {CanBreakDoors:1,CustomName:["Працівник ТЦК"],PersistenceRequired:1b,equipment:{mainhand:{id:iron_sword},head:{id:leather_helmet},chest:{id:leather_chestplate},legs:{id:leather_leggings},feet:{id:leather_boots}},attributes:[{id:max_health,base:100f},{id:movement_speed,base:0.4f}]}
+summon zombie ~ ~ ~ {CanBreakDoors:1,CustomName:["Працівник ТЦК"],PersistenceRequired:1b,equipment:{mainhand:{id:iron_sword},head:{id:leather_helmet},chest:{id:leather_chestplate},legs:{id:leather_leggings},feet:{id:leather_boots}},attributes:[{id:max_health,base:100f},{id:movement_speed,base:0.4f}]}
+
+summon ravager ~ ~ ~ {CustomName:["бусік :3"],PersistenceRequired:1b,attributes:[{id:max_health,base:100f}]}

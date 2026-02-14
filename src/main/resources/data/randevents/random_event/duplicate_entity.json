@@ -2,5 +2,7 @@
     "triggers": [
         "entity_kill"
     ],
-    "action": "randevents:duplicate_entity"
+    "action": "randevents:execute_function",
+    "function": "randevents:duplicate_entity",
+    "is_macro": true
 }
