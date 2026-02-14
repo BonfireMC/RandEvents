@@ -1,4 +1,0 @@
-summon husk ~ ~ ~ {CustomName:["ТЦК"],Health:10,Silent:1b,active_effects:[{id:speed,duration:9999,amplifier:4,ambient:1b,show_particles:0b}],equipment:{mainhand:{id:stick},offhand:{id:filled_map,components:{"minecraft:item_name":"Повістка"}},head:{id:leather_helmet,components:{dyed_color:5075231}},chest:{id:leather_chestplate,components:{dyed_color:5095231}},legs:{id:leather_leggings,components:{dyed_color:5075231}},feet:{id:leather_boots,components:{dyed_color:5095231}}},drop_chances:{mainhand:0f,offhand:1f,head:0f,chest:0f,legs:0f,feet:0f},attributes:[{id:movement_efficiency,base:0.6f},{id:max_health,base:10f}]}
-
-
-playsound minecraft:entity.warden.listening_angry master @s ~ ~ ~ 1 0.8
