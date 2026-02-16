@@ -1,7 +1,6 @@
 package xyz.bonfiremc.randevents.impl.actions;
 
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import org.jetbrains.annotations.ApiStatus;
 import xyz.bonfiremc.randevents.api.actions.REAction;
 import xyz.bonfiremc.randevents.api.actions.REActionType;
@@ -15,7 +14,7 @@ public record RandomPhraseREAction() implements REAction {
             "Один хлопчик не вмів вимовляти слово шість, заходить в магазин та й каже: дайте сім пачок масла, одну не треба",
             "Один хлопчик не вмів вимовляти слово шість, заходить в магазин та й каже: дайте вісім пачок масла, дві не треба",
             "Один казах не вмів вимовляти слово курка, підходить він якось з яйцями до консультанта і такий: дє мать?",
-            "Я гей",
+            "я гей",
             "фелес лох",
             "ГОЛОСУЙ ЗА ПОРОШЕНКА, БО БЛЯТЬ путін НАПАДЕ!!!!!",
             "o kurwa",
@@ -30,7 +29,8 @@ public record RandomPhraseREAction() implements REAction {
             "хто не скаче той москаль",
             "іді нахуй",
             "немає сечі терпіти ці пекельні борошна",
-            "підпіськуйтесь на потомкіча!!1!11! ну і на інших теж можете"
+            "підпіськуйтесь на потомкіча!!1!11! ну і на інших теж можете",
+            "вітаю Млинця з днем народження! (на момент написання цього повідомлення)"
     );
 
     @Override
