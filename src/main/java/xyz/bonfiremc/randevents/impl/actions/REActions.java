@@ -10,6 +10,7 @@ import xyz.bonfiremc.randevents.impl.REInitializer;
 @ApiStatus.Internal
 public class REActions {
     public static final REActionType EXECUTE_FUNCTION = register("execute_function", ExecuteFunctionREAction.CODEC);
+    public static final REActionType RANDOM_PHRASE = register("random_phrase", MapCodec.unit(new RandomPhraseREAction()));
     public static final REActionType SHUFFLE_INVENTORY = register("shuffle_inventory", MapCodec.unit(new ShuffleInventoryREAction()));
 
     public static void load() {

@@ -6,7 +6,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.commands.CommandResultCallback;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.commands.FunctionInstantiationException;
 import net.minecraft.commands.execution.ExecutionContext;
 import net.minecraft.commands.functions.InstantiatedFunction;
 import net.minecraft.nbt.CompoundTag;
@@ -57,7 +56,8 @@ public record ExecuteFunctionREAction(Identifier function, boolean forcePlayer, 
                         source,
                         executionContext -> ExecutionContext.queueInitialFunctionCall(executionContext, instantiatedFunction, source, CommandResultCallback.EMPTY)
                 );
-            } catch (FunctionInstantiationException ignored) {
+            } catch (Exception exception) {
+                exception.printStackTrace();
             }
         });
     }

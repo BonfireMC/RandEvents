@@ -6,6 +6,6 @@
         "entity_kill"
     ],
     "action": "randevents:execute_function",
-    "function": "randevents:foggy_day",
+    "function": "randevents:youre_blue_now",
     "force_player": true
 }
